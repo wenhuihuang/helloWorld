@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		/************变量转换*******************/
+			var v = "3.141",
+			str = ''+v,
+			int = ~~v,
+			float = 1*v,
+			bool = !!v,
+			array = [v];
+		/*	console.log(typeof str)//string
+			console.log(typeof int)
+			console.log(typeof float)
+			console.log(bool)
+			console.log(array)*/
+			
+			
+			/******十进制转十六进制或8进制。或者反过来******/
+			console.log((18).toString(16)); // converts int to hex, eg 12 => "C"
+			(12).toString(8);  // converts int to octal, eg. 12 => "14"
+			parseInt("ff",16) // converts hex to int, eg. "FF" => 255
+			parseInt("22",8) // converts octal to int, eg. "20" => 16
+		
+		/**********为window.name赋值**************/
+		/*	window.name="哈哈";
+			alert(window.name)*/
+			
+		/*************判断属性是否存在**************/
+			var foo = "hh";
+			if(typeof foo != "undefined"){
+				alert("has")
+			}else{
+				alert("false")
+			}
+			
+		/******************用对象做参数***********************/
+			function doSomething() {　
+			   // Leaves the function if nothing is passed　　
+			   if (!arguments[0]) {　　
+			   return false;　　
+			   }　　
+			   var oArgs   = arguments[0],　　
+				arg0    = oArgs.arg0 || "",　　
+			　	 arg1    = oArgs.arg1 || "",　　
+				　 arg2    = oArgs.arg2 || 0,　　
+				　 arg3    = oArgs.arg3 || [],　　
+			　	 arg4    = oArgs.arg4 || false;
+			if(oArgs.arg4 == false){
+				alert("false")
+				alert(arg1)
+			}
+			}
+			var dos=doSomething({　　
+					arg1    : "foo",　　
+			　　             arg2    : 5,　　
+			　　             arg4    : false
+			});
+			
+	/*****************使用document.createDocumentFragment()************************/
+	
+			function createList(){
+				var aLi = ["first item","second item","third item"];
+				var oFrag = document.createDocumentFragment();
+				while(aLi.length){
+					var oLi = document.createElement("li")
+					oLi.appendChild(document.createTextNode(aLi.shift()));
+					oFrag.appendChild(oLi);
+				}
+				document.getElementById("div").appendChild(oFrag);
+			}
+	/***********************为replace()方法传递一个函数********************************************/
+			var sFlop   = "Flop: [Ah] [Ks] [7c]";
+			var aValues = {"A":"Ace","K":"King",7:"Seven"};
+			var aSuits  = {"h":"Hearts","s":"Spades","d":"Diamonds","c":"Clubs"};
+			sFlop   = sFlop.replace(/\[\w+\]/gi, function(match) {　　debugger
+			　　match   = match.replace(match[2], aSuits[match[2]]);　　
+			　　match   = match.replace(match[1], aValues[match[1]] +" of ");　　return match;
+			});
+					// string sFlop now contains:
+// "Flop: [Ace of Hearts] [King of Spades] [Seven of Clubs]"
+		console.log(sFlop)
+			window.onload=function(){
+				createList()
+			}
+		
+		</script>
+	</head>
+	<body>
+		<div id="div">
+		
+		</div>
+	</body>
+</html>
