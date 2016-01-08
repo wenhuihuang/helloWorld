@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/******************数组去重**************************************/
+			/**
+			 * 数组去重 
+			 * 遍历arr如果新的数组中没有（indexOf() == -1）push中新数组中
+			 * 最后返回新的数组
+			 * indexOf()
+			 * @param {Object} arr
+			 */
+			function unique(arr){
+				var result = [];
+				for(var i =0 ; i < arr.length; i++){
+					if(result.indexOf(arr[i]) == -1){
+						result.push(arr[i]);
+					}
+				}
+				return result;
+			}
+			
+			/**
+			 * 数组去重
+			 * 从原数组就shift()出一个元素（shift()删除数组中和第一个元素，返回这个被删的元素）
+			 * 如果移出的元素不在arr中就push到新的数组（indexOf()判断一个字符串是否在数组中，如果在返回在这个数组中首次出现的位置，否则返回-1）
+			 * 一直到旧的数组的长度为0
+			 * 运用递归和indexOf()
+			 * @param {Object} arr
+			 * @param {Object} newArr
+			 */
+			function uniqueFn(arr,newArr){
+				var nu;
+				if(-1 == arr.indexOf(nu = arr.shift())){
+					newArr.push(nu);
+				}
+				//arr.length && uniqueFn(arr,newArr) //等同下面的写法
+				if(arr.length){
+					uniqueFn(arr,newArr);
+				}
+			}
+			
+	/**********************数组扰乱***********************************/
+			
+			/**
+			 * 数组顺序扰乱
+			 * 用Math.random()生成随机[0,1)的数，
+			 * 再用Math.foolr()向下取整，
+			 * 用delete删除数组元素，长度自减一(因为delete不改变数组的长度和索引)
+			 * @param {Object} array
+			 */
+			function shuffle(array){
+				var copy = [],
+					n = array.length,
+					i;
+					while(n){
+						i = Math.floor(Math.random()*array.length);
+						//如果这个元素之前没有被选中过--因为用delete删除数组内元素，索引不变，所以可以用i
+						if(i in array){
+							copy.push(array[i]);
+							delete array[i];//用delete删除数组，数组长度不变，被删除的元素变成undefined,原来数组索引不变
+							n--;
+						}
+					}
+					return copy;
+			}
+			
+			/**
+			 * 数组顺序扰乱
+			 * 随机抽出一个元素，如果在原数组中，则把这个push到新的数组中，
+			 * splice()删除原数组中和元素
+			 * 最后返加新的数组
+			 * @param {Object} array
+			 */
+			function shuffleA(array){
+				var copy = [],
+				n = array.length,
+				i;
+				//如果还剩元素
+				while(n){
+					
+					i = Math.floor(Math.random()*n--);
+					if(i in array){
+						//因为splice()返回一个被截去的元素组成的数组，表示从i开始截一个
+						//原数组删除这个元素
+						copy.push(array.splice(i,1)[0]);
+					}
+				}
+				return copy;
+			}
+			
+			/**
+			 * 数组顺序扰乱
+			 * 随机抽出一个元素，并将这个元素和当前元素换位
+			 * 最后返这个扰乱后的数组
+			 * @param {Object} array
+			 */
+			function shuffleB(array){
+				var n = array.length,
+					i,t;
+					while(n){
+						i = Math.floor(Math.random()*n--);
+						t=array[n];
+						array[n]=array[i];
+						array[i]=t;
+					}
+					return array;
+			}
+			
+	/**************************数组判断***********************************/
+			/**
+			 * 用自带的isArray方法 
+			 * 
+			 */
+			var arr = ["1","2"];
+			Array.isArray(arr);
+			
+			/**
+			 * instanceof 运算符
+			 */
+			var arr = [];
+			arr instanceof Array;
+			
+			/**
+			 * 利用toString的返回值
+			 */
+			function isArray(o){
+				return Object.prototype.toString.call(o) == "[object Array]";
+			}
+			
+	/******************数组交集************************/
+	
+			/*var arr = array1.filter(function(n){
+				return array2.indexOf(n) != -1;
+			})*/
+	
+	/*******************数组并集********************************/
+			
+			function arrayUnique(array1,array2){
+				var a = array1.concat(array2);
+				for(var i = 0 ;i<a.length;i++){
+					for(var j= i+1 ;j<a.length;j++){
+						if(a[i] === a[j]){
+							a.splice(j,1);//a.splice(j--,1);
+							j--;
+						}
+					}
+				}
+				return a;
+			}
+			
+	/*******************数组求差集****************************/
+		
+			Array.prototype.diff=function(a){
+				return this.filter(function(i){
+					return a.indexOf(i)<0;
+				})
+			}
+		
+			window.onload=function(){
+				var arr1 = ["1","2","3","3","3","5","7","7","7"];
+				var arr2 = ["1","2","4","5","8"];
+				console.log(arr1.diff(arr2))
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
