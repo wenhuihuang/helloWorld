@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			//一个手机类
+			var MobilePhone = (function(){
+				//私有属性
+				var count = 0;//代表手机数量
+				var index = 0;//手机索引
+				//构造函数
+				var mobilePhone=function (name,color,size,price){
+					count++;
+					this.name=name;
+					this.color=color;
+					this.size=size;
+					this.price=price;
+					this.index=count;
+				}
+				//公共方法放在原型对象中
+				mobilePhone.prototype={
+					constructor:"mobilePhone",//还原构造器，让与构造器有关系
+					getName:function(){
+						return this.name;
+					},
+					setName:function(name){
+						this.name=name;
+					},
+					getColor:function(){
+						return this.color;
+					},
+					setColor:function(color){
+						this.color=color;
+					},
+					getSize:function(){
+						return this.size;
+					},
+					setSize:function(size){
+						this.size=size;
+					},
+					getPrice:function(){
+						return this.price;
+					},
+					setPrice:function(price){
+						this.price=price;
+					}
+				}
+				
+				//特权方法---用来获取私有属性
+				mobilePhone.getCount=function(){
+					return count;
+				}
+				
+				return mobilePhone;
+			})()
+			
+			window.onload=function(){
+				var htc = new MobilePhone("htc","red","5.0\"",2000);
+				var iphone = new MobilePhone()
+					iphone.setName("iphone6");
+				console.log(htc);
+				console.log(htc.getName());
+				console.log(iphone.getName())
+				console.log("总共的"+MobilePhone.getCount())
+				console.log(htc.constructor);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

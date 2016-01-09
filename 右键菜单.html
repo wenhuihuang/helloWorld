@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*右键菜单*/
+			.right-menu{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				z-index: 1000000;
+				background: red;
+				top: 0;
+			}
+		</style>
+		<script>
+			//右键菜单
+			var RightKey = (function(){
+				//私有属性
+				
+				//构造函数
+				var rightKey=function (){
+					var rKObj=arguments[0];//html,ev,width,height
+					this.html=rKObj.html;
+					this.width=rKObj.Width;
+					this.height=rKObj.height;
+					this.ev=rKObj.ev;
+				}
+				//公共方法放在原型对象中
+				rightKey.prototype={
+					constructor:"rightKey",//还原构造器，让与构造器有关系
+					//创建右键菜单
+					create : function(){
+						//alert("create")
+						var h = this.html;
+						var	hArray = h.split(",");
+							//console.log(hArray)
+						var str = "";
+						var div = document.createElement("div");
+						div.setAttribute("class","right-menu");
+						div.setAttribute("id","right-menu")
+						//var wrapObj = document.getElementById("main-container");
+						var wrapObj = document.getElementsByTagName("body")[0];
+						str += "<ul>";
+						for(var i = 0; i < hArray.length; i++){
+							str += "<li><a href='javascript:;'>"+hArray[i]+"</a></li>";
+						}
+						str += "</ul>";
+						div.innerHTML = str;
+						console.log(div)
+						wrapObj.appendChild(div);
+						console.log("wrapObj"+wrapObj.innerHTML) //return this.html
+						
+					},
+					//关闭右键菜单
+					close : function(){
+						//alert("close")
+						if(document.getElementById("right-menu")){
+							var wrapObj = document.getElementsByTagName("body")[0];
+							var menuObj = document.getElementById("right-menu");
+							wrapObj.removeChild(menuObj);
+						}
+						
+					},
+					init : function(){
+						
+						var e = e || window.event;
+						//console.log(e.button)
+						if(e.button == "2"){
+							//alert("右键");
+							this.create.call(this,arguments);
+							//return (this.ev)();
+						}else{
+							this.close.call(this,arguments);
+						}
+					}
+				}
+				
+				//特权方法---用来获取私有属性
+				rightKey.getCount=function(){
+					return count;
+				}
+				
+				return rightKey;
+			})()
+			
+				document.onmousedown=function(){
+					var rightK = new RightKey({
+						width:200,
+						height: "",
+						html:"item1,item2",
+						ev:function(){
+							alert("ev")
+						}
+					})
+					rightK.init()
+					//closeAllTab()
+				}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
