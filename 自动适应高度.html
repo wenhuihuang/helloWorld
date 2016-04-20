@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			#right{
+				height: 340px;
+			}
+		/*	.all-height-wrap table,.all-height-wrap tbody, .all-height-wrap tr , .all-height-wrap td{
+				display: block;
+			}*/
+		</style>
+		<script type="text/javascript" src="core/js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="core/js/HCore.js" ></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var one = document.getElementById("one");
+				var two = document.getElementById("two")
+				var three = document.getElementById("three")
+				var parent = document.getElementById("wrapper")
+				HCore.fullHeight(parent,[one,two,three])
+				$(window).resize(function(){
+					HCore.fullHeight(parent,[one,two,three])
+				})
+			}
+		</script>
+	</head>
+	<body>
+<!--		<div style="width:100%;height:70px;background:#ccc;"></div>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+		<div class="all-height-wrap" id="wrapper" style="background: yellow;">
+			<div id="one" style="background: red;height: 20px;">
+				
+			</div>
+			<div id="two" style="background: green;height:200px"></div>
+			<div id="three" style="background: blue;"></div>
+		</div>
+			</tbody>
+		</table>-->
+		
+		<div style="width:100%;height:70px;background:#ccc;"></div>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td>左dasf </td>
+				<td>
+							<table border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+				<tr>
+					<tr>
+						<td>你好吧</td>
+					</tr>
+					<td>
+							<div class="all-height-wrap" id="wrapper" style="background: yellow;">
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+		
+			<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr>
+								<td><div id="one" style="background: red;height: 30px;">
+				
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="two" style="background: green;height:200px">
+						<div style="width:20%;float:left;height:150px;background:#fff;">left</div>
+						<div style="width:40%;float:right;height:100%;background:#fff;">right</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="three" style="background: blue;"></div>
+				</td>
+			</tr>
+			
+		
+			</tbody>
+		</table>
+	</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	</body>
+</html>

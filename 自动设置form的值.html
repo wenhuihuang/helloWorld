@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="core/js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="core/js/HCore.js" ></script>
+		<script>
+			window.onload=function(){
+				var data = {"age":12,"name":"小黄","sex":"1","hobby":"乒乓球,足球","address":"1","note":"这个是备注"};
+				var form = $("#fo")[0];
+				HCore.setForm(form,data)
+				
+
+			}
+		</script>
+	</head>
+	<body>
+		<form id="fo">
+			<input type="text"  name="name" />
+			<input type="text" name="age" />
+			<input type="radio" name="sex" value="0"/>女
+			<input type="radio" name="sex" value="1">男
+			<input type="checkbox" name="hobby" value="篮球" />篮球
+			<input type="checkbox" name="hobby" value="足球" />足球
+			<input type="checkbox" name="hobby" value="乒乓球" />乒乓球
+			<select name="address">
+				<option value="1">广东</option>
+				<option value="2">广西</option>
+			</select>
+			<textarea name="note"></textarea>
+			<a id="sub">sub</a>
+		</form>
+	</body>
+</html>
