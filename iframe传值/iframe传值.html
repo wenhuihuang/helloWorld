@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		window.onload=function(){
+			document.getElementById("sub2").contentWindow.sub2()
+		}
+		var p = "parent24"
+			function test(){
+				alert("你好吗")
+			}
+			
+		</script>
+	</head>
+	<body>
+		<iframe id="sub1" src="iframe_sub1.html"></iframe>
+		<iframe id="sub2" src="iframe_sub2.html"></iframe>
+	</body>
+</html>

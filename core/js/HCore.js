@@ -32,10 +32,10 @@
 						for(var i = 0; i< formChild.length;i++){
 							//input
 							if(formChild[i].tagName == "INPUT"){
-								if($(formChild[i]).attr("name") == key){
+								if($(formChild[i]).attr("name").toLowerCase() == key.toLowerCase()){
 								
 								//radio
-								if($(formChild[i]).attr("type") == "radio"){
+								if($(formChild[i]).attr("type").toLowerCase() == "radio"){
 								
 									if($(formChild[i]).attr("value") == data[key]){
 										$(formChild[i]).attr("checked","checked");
@@ -43,7 +43,7 @@
 								}
 								
 								//checkbox 
-								if($(formChild[i]).attr("type") == "checkbox"){
+								if($(formChild[i]).attr("type").toLowerCase() == "checkbox"){
 									//如果传过来的是数组
 									if(data[key] instanceof Array){
 											for(var j = 0;j < data[key].length;j++){
@@ -66,7 +66,7 @@
 									
 									
 									//text
-									if($(formChild[i]).attr("type") == "text"){
+									if($(formChild[i]).attr("type").toLowerCase() == "text"){
 										$(formChild[i]).val(data[key])
 									}
 								
@@ -74,7 +74,7 @@
 								}
 							}
 							//select
-							else if(formChild[i].tagName == "SELECT" &&　$(formChild[i]).attr("name") == key){
+							else if(formChild[i].tagName == "SELECT" &&　$(formChild[i]).attr("name").toLowerCase() == key.toLowerCase()){
 								var op = $(formChild[i]).children("option");
 								for(var o = 0 ; o < op.length ;o++){
 									if($(op[o]).attr("value") == data[key]){
@@ -86,7 +86,7 @@
 							
 							//textarea
 							else if(formChild[i].tagName == "TEXTAREA"){
-								if($(formChild[i]).attr("name") == key){
+								if($(formChild[i]).attr("name").toLowerCase() == key.toLowerCase()){
 									$(formChild[i]).html(data[key])
 								}
 							}
