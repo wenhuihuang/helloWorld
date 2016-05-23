@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			    padding: 0;
+			    margin: 0;
+			    list-style: none;
+			  }
+			  
+			  header {
+			    background: #f7483b;
+			    border-bottom: 1px solid #ccc
+			  }
+			  
+			  header h2 {
+			    text-align: center;
+			    line-height: 54px;
+			    font-size: 16px;
+			    color: #fff
+			  }
+			  
+			  .list-ul {
+			    overflow: hidden
+			  }
+			  
+			  .list-li {
+			    line-height: 60px;
+			    border-bottom: 1px solid #fcfcfc;
+			    position: relative;
+			    padding: 0 12px;
+			    color: #666;
+			    background: #f2f2f2;
+			    -webkit-transform: translateX(0px);
+			  }
+			  
+			  .btn {
+			    position: absolute;
+			    top: 0;
+			    right: -80px;
+			    text-align: center;
+			    background: #ffcb20;
+			    color: #fff;
+			    width: 80px
+			  }
+		</style>
+		<script>
+			window.addEventListener('load',function(){
+				var initX;//开始触摸时位置
+				var moveX;//滑动时的位置
+				var X=0;//滑动时的距离
+				var objX=0;//目标对象位置
+				var lis = document.getElementsByClassName('list-li');
+				for(var i = 0; i < lis.length;i++){
+					var li = lis[i];
+					li.addEventListener('touchstart',function(event){
+						initX = event.targetTouches[0].pageX;//获取开始触摸时的位置
+						objX = (this.style.webkitTransform.replace(/translateX\(/g,"")).replace(/px\)/g,"");
+						if(objX < 0){
+							this.addEventListener('touchmove',function(event){
+								moveX = event.targetTouches[0].pageX;
+								X = moveX - initX;
+								if(X < 0){
+									this.style.webkitTransform='translateX('+-80+'px)';
+								}else if(X >= 0){
+									var l = -80 + Math.abs(X);
+									this.style.webkitTransform='translateX('+l+'px)';
+									if(l > 0){
+										l=0;
+										this.style.webkitTransform='translateX('+l+'px)';
+									}
+								}
+							})
+						}else if(objX == 0){
+							this.addEventListener('touchmove',function(event){
+								moveX = event.targetTouches[0].pageX;//获取滑动时的位置
+								X = moveX - initX;
+								var l = Math.abs(X);
+								if(X < 0){
+									this.style.webkitTransform='translateX('+-l+'px)';
+									if(l > 80){
+										l=80;
+										this.style.webkitTransform='translateX('+-80+'px)';
+									}
+								}else if(X >= 0){
+									this.style.webkitTransform='translateX('+0+'px)';
+								}
+							})
+						}
+					})
+					li.addEventListener('touchend',function(event){
+						objX=this.style.webkitTransform.replace(/translateX\(/g,"").replace(/px\)/g,"");
+						if(objX < -40){
+							this.style.webkitTransform='translateX('+-80+'px)';
+						}else if(objX >-40 ){
+							this.style.webkitTransform='translateX('+0+'px)';
+						}
+					})
+				}
+			})
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<h2>消息列表</h2>
+		</header>
+		<section class="list">
+			<ul class="list-ul">
+				<li id="li" class="list-li">
+					<div class="con">
+						你的快递到了，请到楼下签收
+					</div>
+					<div class="btn">删除</div>
+				</li>
+				<li class="list-li">
+					<div class="con">
+						哇，你在干嘛，快点来啊就等你了
+					</div>
+					<div class="btn">删除</div>
+				</li>
+			</ul>
+		</section>
+	</body>
+
+</html>

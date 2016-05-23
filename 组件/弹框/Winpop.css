@@ -1,0 +1,48 @@
+@charset "utf-8";
+.Winpop{
+	display: none;
+}
+.mask{
+	position: absolute;
+	width: 100%;
+	top:0;
+	left:0;
+	right:0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.45);
+}
+.pop-con{
+	width:280px;
+	height: 180px;
+	background: #fff;
+	border-radius: 4px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.Winpop p,.Winpop h5{
+	padding:0;
+	margin:0;
+	text-align: center;
+}
+.Winpop input {
+	display: block;
+	margin:0 auto;
+}
+.Winpop a{
+	text-decoration: none;
+}
+.Winpop .btn-group{
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	display:-webkit-box;
+}
+.Winpop .btn-group a{
+	display: block;
+	-webkit-box-flex: 1.0;
+	text-align: center;
+}

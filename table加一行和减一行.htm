@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <title>微信照片打印机</title>
+	    <meta name="description" content="">
+	    <meta name="author" content="Administrator">
+	    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+	    <meta content="yes" name="apple-mobile-web-app-capable">
+	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	    	<script type="text/javascript" src="jquery-1.11.2.min.js" ></script>
+		<style type="text/css">
+			.wrap{
+				display: -webkit-box;
+				height: 20px;
+			}
+			.wrap div{
+				-webkit-box-flex:1.0 ;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				document.getElementById("btn").onclick=function(){
+					insertR()
+				}
+				document.getElementById("minus-btn").onclick=function(){
+					deleteR()
+				}
+			}
+			function insertR(){
+					var table = document.getElementById("tbody");
+				var newRow = table.insertRow();
+				for(var i = 0 ; i < 2;i++){
+					var cell = newRow.insertCell();
+					cell.innerText="item"+i
+				}
+			}
+			function deleteR(){
+				var table = document.getElementById("tbody");
+				var le = table.children.length;
+				console.log(le)
+				table.deleteRow(le-1);
+			}
+		</script>
+	</head>
+	<body>
+	<button id="btn">加一行</button>
+	<button id="minus-btn">删一行</button>
+	<table border="1" width="100%" cellspacing="" cellpadding="">
+		<thead>
+			<tr>
+				<td>序号</td>
+				<td>名称</td>
+				
+			</tr>
+		</thead>
+		<tbody id="tbody"></tbody>
+	</table>
+	</body>
+</html>

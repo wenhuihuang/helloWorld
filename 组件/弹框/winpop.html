@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+		<title></title>
+		<link rel="stylesheet" href="Winpop.css" />
+		<script type="text/javascript" src="../../core/js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="Winpop.js"></script>
+		<script>
+			function test(self){
+				console.log(self)
+			}
+			$(function() {
+				$('.btn').click(function() {
+					var pop = new Winpop({
+						title: "标题",
+						content: "内容",
+						input: false,
+						callback: test
+					});
+					pop.show()
+				})
+				$(".btn2").click(function(){
+					var pop2 = new Winpop({
+						title: "标题2323",
+						content: "内容2323",
+						input: true,
+						callback: test
+					});
+					pop2.show();
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<button class="btn">点击1</button>
+		<button class="btn2">点击2</button>
+		<div class="Winpop">
+		</div>
+	</body>
+
+</html>
