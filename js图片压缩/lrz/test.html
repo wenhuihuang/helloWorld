@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="dist/lrz.bundle.js"></script>
+		<script>
+			window.onload=function(){
+				document.querySelector('#file').addEventListener('change', function() {
+				//如果您的图片不是来自用户上传的，那么也可以直接传入图片路径。lrz('./xxx/xx/x.png')
+				lrz(this.files[0])
+					.then(function(rst) {
+						// 处理成功会执行
+						console.log(rst);
+						var img = document.createElement("img");
+						img.src=rst.base64;
+						document.getElementsByTagName('body')[0]
+						.appendChild(img)
+					})
+					.catch(function(err) {
+						// 处理失败会执行
+					})
+					.always(function() {
+						// 不管是成功失败，都会执行
+					});
+			});
+			}
+			
+		</script>
+	</head>
+
+	<body>
+		<input id="file" type="file" accept="image/*" />
+	</body>
+
+</html>

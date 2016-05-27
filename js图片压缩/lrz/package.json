@@ -1,0 +1,76 @@
+{
+  "name": "lrz",
+  "version": "4.9.36",
+  "description": "前端本地客户端压缩图片，兼容IOS，Android，PC、自动按需加载文件",
+  "main": "dist/lrz.bundle.js",
+  "scripts": {
+    "test": "node ./node_modules/karma/bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/think2011/localResizeIMG.git"
+  },
+  "keywords": [
+    "lrz",
+    "localResizeIMG",
+    "前端压缩图片",
+    "前端图片压缩",
+    "压缩图片"
+  ],
+  "bugs": {
+    "url": "https://github.com/think2011/localResizeIMG/issues"
+  },
+  "author": {
+    "name": "think2011"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-static-hash": "^0.1.3",
+    "gulp-webpack": "^1.5.0",
+    "karma": "^0.13.8",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.20",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17",
+    "webpack": "^1.11.0"
+  },
+  "dependencies": {
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^1.2.2"
+  },
+  "gitHead": "98742d4bd9bc088198ef75e3b986c8cac7b3c44e",
+  "homepage": "https://github.com/think2011/localResizeIMG#readme",
+  "_id": "lrz@4.9.36",
+  "_shasum": "c3c88988e8aa9dc5dc877c64b0a7ba9e397f9071",
+  "_from": "lrz@*",
+  "_npmVersion": "3.6.0",
+  "_nodeVersion": "5.7.0",
+  "_npmUser": {
+    "name": "think2011",
+    "email": "452125301.hzplay@gmail.com"
+  },
+  "dist": {
+    "shasum": "c3c88988e8aa9dc5dc877c64b0a7ba9e397f9071",
+    "tarball": "https://registry.npmjs.org/lrz/-/lrz-4.9.36.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "think2011",
+      "email": "452125301.hzplay@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/lrz-4.9.36.tgz_1460086161938_0.8545199865475297"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/lrz/-/lrz-4.9.36.tgz"
+}
