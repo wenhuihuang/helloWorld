@@ -42,6 +42,8 @@
 						+ '</div>';
 			var ele = this.Winpop;
 			for (var i = 0; i < ele.length; i++) {
+				self.addStyle(ele[i],{'color':'red'})
+				console.log(ele[i])
 				this.Winpop[i].innerHTML = html;
 				var btnGroup = document.getElementsByClassName('btn-group')[0];
 				self.leftBtn.innerHTML=self.settings.leftBtn;
@@ -94,6 +96,13 @@
 			for(var i = 0; i < winpop.length;i++){
 				winpop[i].style.display='block';
 			}
+		},
+		addStyle:function(ele,styleObj){
+				var self = this;
+				for(var o in styleObj){
+					ele.style[o]=styleObj[o];
+				}
+
 		}
 	}
 	window['Winpop'] = Winpop;

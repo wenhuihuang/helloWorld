@@ -8,7 +8,7 @@
 		 * FileReader
 		 */
 		
-			//以data url 方式将文件读入页面
+			//以data url 方式将文件读入页面  这个也是base64
 			function readAsDataURL(){
 				var f = document.getElementById("file").files[0];
 				if(!/image\/\w+/.test(f.type)){
@@ -20,7 +20,7 @@
 				reader.onload=function(e){
 					var d = document.getElementsByTagName("body")[0];
 					var img = document.createElement("img");
-					img.src=this.result;
+					img.src=this.result;  //this.result  是一个base64
 					img.width=120;
 					d.appendChild(img)
 				}
@@ -31,7 +31,7 @@
 				var f = document.getElementById("file").files[0];
 				var reader = new FileReader();
 				reader.readAsBinaryString(f)
-				reader.onload=function(f){
+				reader.onload=function(e){
 					var b = document.getElementsByTagName("body")[0];
 					var d = document.createElement("div");
 					d.innerHTML=this.result;
@@ -45,7 +45,7 @@
 				var f = document.getElementById("file").files[0];
 				var reader = new FileReader();
 				reader.readAsText(f,'gb2312')
-				reader.onload=function(f){
+				reader.onload=function(e){
 					var b = document.getElementsByTagName("body")[0];
 					var d = document.createElement("div");
 					d.innerHTML=this.result;
