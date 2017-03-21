@@ -196,3 +196,25 @@
 	
 	window['HCore']=window.HCore=HCore;
 })()
+
+Object.prototype.clone = function(){
+			var buf ;
+			if(this.constructor === Array){
+				buf = [];
+				for(var i = 0; i < this.length; i++){
+					buf[i] = this[i].clone();
+				}
+				return buf;
+			}
+			else if (this.constructor === Object ){
+				buf = {};
+				for( var o in this){
+					buf[o] = this[o] != null && this[i] != undefined ? this[o].clone() : this[o];
+				}
+				return buf;
+			}
+			else{
+				return this;
+			}
+
+		}
