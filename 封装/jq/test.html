@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="./jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./base.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('[name="button"]').click(function(){
+          $.ajax({
+            type : 'get',
+            url : '/aa.jsp',
+            success : function(){
+              alert('33')
+            },
+            error:function(){
+              alert('出错了')
+            }
+          })
+        })
+        $('#comboboxLinkage').comboboxLinkage({
+          items:[
+            {
+              url:'one.json',
+              // data:{
+              //   0:'一级',
+              //   1:'二级'
+              // },
+              params:{w:'w',t:'t'},
+              name:'one2',
+              value:'a',
+              chooseText:true
+
+            },
+            {
+              url:'one.json',
+              // data:{
+              //   3:'2一级',
+              //   4:'2二级'
+              // },
+              params:{w:'w',t:'t'},
+              name:'two',
+              value:'a',
+              chooseText:true
+
+            },
+            {
+              url:'one.json',
+              // data:{
+              //   3:'2一级',
+              //   4:'2二级'
+              // },
+              params:{w:'w2',t:'t1'},
+              name:'two',
+              value:'b',
+              chooseText:true
+
+            },
+            {
+              url:'one.json',
+              // data:{
+              //   3:'2一级',
+              //   4:'2二级'
+              // },
+              params:{w:'w3',t:'t3'},
+              name:'two',
+              //value:'b',
+              chooseText:true,
+              onChange:function(value){
+                alert(value)
+              }
+
+            }
+          ]
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <button type="button" name="button">btn</button>
+    <button type="submit" name="button">submit</button>
+    <div id="comboboxLinkage">
+
+    </div>
+  </body>
+</html>
