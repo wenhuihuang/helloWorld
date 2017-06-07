@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../jq/jquery-1.11.3.min.js">
+
+    </script>
+    <script type="text/javascript">
+    /**
+    *简单工厂模式
+    **/
+    function createPop(type,text){
+      var o = new Object();
+      o.content=text;
+      //相同部分
+      o.show=function(){
+      }
+      //不同部分
+      if(type == 'alert'){
+
+      }
+    }
+
+    /**
+    *安全工厂模式
+    **/
+      function ChangeState(type,obj){
+        if(this instanceof ChangeState){
+          var o = new this[type](obj);
+          return o;
+        }else {
+          return new ChangeState(type,obj)
+        }
+      }
+      ChangeState.prototype={
+        constructor:ChangeState,
+        delete : function(obj){
+          alert('de')
+        },
+        update : function(obj){
+          alert('update')
+        }
+      }
+
+    new  ChangeState('delete',{})
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
