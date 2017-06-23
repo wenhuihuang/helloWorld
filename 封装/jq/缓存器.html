@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>缓存器</title>
+    <script type="text/javascript">
+
+    function showPage(data){
+      console.log(data)
+    }
+
+      var page = (function(){
+        var _cache = {}
+        return function(page,fn){
+          if(_cache[page]){
+            console.log('有')
+            showPage(_cache[page])
+          }else{
+            console.log('没有')
+            _cache[page] = page
+          }
+        }
+      })()
+      page('0')
+      page('0')
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

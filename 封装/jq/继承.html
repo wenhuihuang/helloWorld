@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>继承</title>
+    <script src="./jquery-1.11.3.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      function Edit(options){
+        this.settings = $.extend({
+          //id:'',
+
+        },options)
+
+
+        this.initElements()
+        this.initEvents()
+      }
+      Edit.prototype = {
+        constructor : Edit,
+        /**
+        *初始化元素
+        */
+        initElements : function(){
+          this.editWrapper = $('<div class="editWrapper" style="display:inline-block;" />')
+          this.textInput = $('<input type="text" placeholder="请输入成绩！" />')
+          this.value = $('<span>请输入成绩！</span>')
+          this.saveBtn = $('<button>保存</button>')
+          this.cancelBtn = $('<button>取消</button>')
+          this.parentEle = $('#'+this.settings.id)
+          //编辑状态
+          this.editWrapper.append(this.textInput).append(this.saveBtn).append(this.cancelBtn)
+          this.parentEle.append(this.editWrapper)
+          //显示状态
+          this.editWrapper.append(this.value)
+          this.parentEle.append(this.editWrapper)
+
+          this.showView()
+        },
+        /**
+        *初始化事件
+        */
+        initEvents : function(){
+          var _self = this
+          this.value.on('click',function() {
+            _self.showEdit()
+          })
+          this.saveBtn.on('click',function(){
+            _self.save()
+          })
+          this.cancelBtn.on('click',function(){
+            _self.showView()
+          })
+        },
+        showEdit : function(){
+          this.textInput.show()
+          this.saveBtn.show()
+          this.cancelBtn.show()
+
+          this.value.hide()
+        },
+        showView : function(){
+          this.value.show()
+
+          this.textInput.hide()
+          this.saveBtn.hide()
+          this.cancelBtn.hide()
+        },
+        save : function(){
+          var _v = $.trim(this.textInput.val()) ? $.trim(this.textInput.val()) : '请输入成绩'
+
+          this.value.html(_v);
+          this.showView()
+          //alert(this.textInput.val())
+        },
+        cancel : function(){
+
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      $(function(){
+        $('ul li').each(function(){
+            new Edit({
+              id:$(this).attr('id')
+            })
+        })
+      })
+    </script>
+    <style media="screen">
+      li{
+        color:blue;
+      }
+    </style>
+  </head>
+  <body>
+      <ul>
+        <li id='a'>张三：</li>
+        <li id='b'>李四：</li>
+        <li id='c'>王五：</li>
+        <li>你好啊</li>
+      </ul>
+  </body>
+</html>
