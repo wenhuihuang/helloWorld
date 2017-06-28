@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='test/jquery-1.11.3.js'></script>
+	<script src="select.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="select.css">
+	<script type="text/javascript">
+		$(function(){
+			$('.form').submit(function(e){
+				console.log($(this).serialize())
+				return false
+			})
+		})
+	</script>
+</head>
+<body>
+<form class="form" action="index.html" method="post">
+	<select class="selest" name="test" component="select" width="120px">
+		<option value="3" >-请选择-</option>
+		<option value="2" selected>第一个</option>
+		<option value="4" >第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个</option>
+		<option value="5" >第三</option>
+	</select>
+	<select class="selest" name="test1" component="select" width="120px">
+		<option value="3" >-请选择-</option>
+		<option value="2" selected>第一个</option>
+		<option value="4" >第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个</option>
+		<option value="5" >第三</option>
+	</select>
+	<select class="selest" name="test2" component="select" width="120px">
+		<option value="3" >-请选择-</option>
+		<option value="2" selected>第一个</option>
+		<option value="4" >第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个第二个</option>
+		<option value="5" >第三</option>
+	</select>
+	<p>dsafdsafdasf</p>
+	<input type="submit" name="" value="提交">
+</form>
+
+</body>
+</html>

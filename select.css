@@ -1,0 +1,36 @@
+ul,li{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+.select-component{
+  display:inline-block;
+  position: relative;
+}
+.select-component.on .select-field,.select-component.on .select-option{
+  outline: 1px solid red;
+}
+.select-field{
+  border:1px solid #ccc;
+  cursor:pointer;
+  white-space:nowrap;
+  overflow-x: hidden;
+}
+.select-option{
+  border:1px solid #ccc;
+  display: none;
+  position: absolute;
+  background:#fff;
+}
+.select-option.on{
+  display: block;
+}
+.select-option li{
+  border-bottom:1px solid #ccc;
+  cursor: pointer;
+  white-space:nowrap;
+}
+.select-option li:hover{
+  color:#fff;
+  background:rgb(30,144,255)
+}
